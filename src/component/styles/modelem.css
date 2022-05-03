@@ -1,0 +1,13 @@
+.modElem{
+    flex-grow: 1;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    height: 150px;
+    width: calc(100% / 3 - 10px);
+}
