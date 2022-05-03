@@ -132,7 +132,7 @@ export default class ModList extends Component {
             })
         }
 
-        console.log(APIPath);
+        // console.log(APIPath);
         fetch(APIPath)
             .then(response => response.json())
             .then(data => {
@@ -140,7 +140,6 @@ export default class ModList extends Component {
                     modsDisplayed: data.data,
                     metaData: data.meta,
                 })
-                console.log(data.meta)
             }
             )
             .catch(function (error) { console.log(error) })

@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import global from "./../global";
 
 import './styles/modpage.css'
@@ -18,7 +18,6 @@ class ModPage extends Component {
         fetch(this.state.apiToCall)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 this.setState({
                     data: data.data,
                     style: {
@@ -36,7 +35,12 @@ class ModPage extends Component {
 
     render() {
         return (
-            <div className="modPage" style={this.state.style} >ModPage {this.props.params.id}</div>
+            <div className="modPage" style={this.state.style}>
+                <Link to="/">Home</Link>
+                <div>
+                    {this.state.data ? this.state.data.title : null}
+                </div>
+            </div>
         )
     }
 }
