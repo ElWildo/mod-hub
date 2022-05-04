@@ -1,4 +1,4 @@
-#Mods Catalog
+# Mods Catalog
 ## Available Scripts
 
 In the project directory, you can run:
