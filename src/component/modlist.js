@@ -79,9 +79,9 @@ export default class ModList extends Component {
     }
 
     handleChangeSearchbar = (e) => {
-            this.setState({
-                search: e.target.value
-            })
+        this.setState({
+            search: e.target.value
+        })
     }
 
     handleClickSearch = () => {
@@ -89,18 +89,18 @@ export default class ModList extends Component {
     }
 
     handleEnterSearch = (e) => {
-        if (e.key === 'Enter'){
+        if (e.key === 'Enter') {
             this.listSetter();
         }
     }
 
     handleStyleButtonClick = (currentClass) => {
-        if(currentClass[0] === 'active') {
-            currentClass.replace('active','disable');
+        if (currentClass[0] === 'active') {
+            currentClass.replace('active', 'disable');
             return
         }
-        if(currentClass[0] === 'disable') {
-            currentClass.replace('disable','active');
+        if (currentClass[0] === 'disable') {
+            currentClass.replace('disable', 'active');
             return
         }
     }
@@ -199,13 +199,13 @@ export default class ModList extends Component {
         let totalPages = parseInt(this.state.metaData.page.total);
 
         return (
-            <div>
+            <div className="pager">
                 {currentPage > 1 &&
-                    <button value={previousPage} onClick={this.handleChangePage}>Previous</button>
+                    <button value={previousPage} className='pagerButton' onClick={this.handleChangePage}>PREVIOUS</button>
                 }
-                <div>{currentPage}/{totalPages}</div>
+                <div className='pagerIndex'>{currentPage}/{totalPages}</div>
                 {currentPage < totalPages &&
-                    <button value={nextPage} onClick={this.handleChangePage}>Next</button>
+                    <button value={nextPage} className='pagerButton' onClick={this.handleChangePage}>NEXT</button>
                 }
             </div>
         )
@@ -218,25 +218,26 @@ export default class ModList extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <label htmlFor="header-search">
-                        <span className="visually-hidden">Search for Mods</span>
-                    </label>
-                    <input
-                        type="text"
-                        id="header-search"
-                        onChange={this.handleChangeSearchbar}
-                        onKeyDown={this.handleEnterSearch}
-                        placeholder="Search for Mods"
-                    />
-                    <button type="submit" onClick={this.handleClickSearch}>Search</button>
-                </div>
                 <div className="functionBar">
                     <button value='scenario' className="disable" onClick={this.handleCategoryFilter.bind(this)}>Scenario</button>
                     <button value='livery' className="disable" onClick={this.handleCategoryFilter.bind(this)}>Livery</button>
                     {this.renderSelect(global.orderList, this.handleChangeOrder)}
                     {this.renderSelect(global.sortList, this.handleChangeSort)}
                     {this.renderSelect(global.pageSizeList, this.handleChangePageSize)}
+                </div>
+                <div className="searchBar">
+                    <label htmlFor="header-search">
+                        <span className="searchLabel">Search for Mods</span>
+                    </label>
+                    <input
+                        type="text"
+                        id="header-search"
+                        className="searchInput"
+                        onChange={this.handleChangeSearchbar}
+                        onKeyDown={this.handleEnterSearch}
+                        placeholder="Search for Mods"
+                    />
+                    <button type="submit" onClick={this.handleClickSearch}>Search</button>
                 </div>
                 <div className="modList">
                     {this.renderList()}

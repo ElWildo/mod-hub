@@ -6,13 +6,53 @@
 }
 
 .functionBar {
-    display: inline-flex
+    display: flex;
+    justify-content: center;
+}
+
+.functionBar > *{
+        margin: 0 5px;
 }
 
 button {
     border-radius: 5px;
     padding: 3px;
     width: auto;
+}
+
+.searchBar{
+    margin: 10px 0;
+}
+
+.searchLabel{
+    color: white;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+.pager{
+    display: flex;
+    color: white;
+    font-size: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagerButton{
+    background-color: transparent;
+    background-image: none;
+    border: 1px solid white;
+    color: white;
+    padding: 5px;
+}
+
+.pagerIndex{
+    padding: 5px;
+}
+
+.searchInput{
+    border-radius: 50px;
+    height: 25px;
 }
 
 .active {

@@ -22,7 +22,7 @@ export default class ModElem extends Component {
     render() {
         return (
             <Link to={'mod/'+this.props.data.id} className='modElem' style={this.state.style}>
-                <div >{this.props.data.title}</div>
+                <div className='modTitle'>{this.props.data.title}</div>
             </Link>
         )
     }
