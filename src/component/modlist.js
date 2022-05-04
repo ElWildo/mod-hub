@@ -68,6 +68,7 @@ export default class ModList extends Component {
 
     handleCategoryFilter = (e) => {
         let categoryUpdated = (this.state.category === e.target.value) ? null : e.target.value
+        this.handleStyleButtonClick(e.target.classList)
         this.setState({
             category: categoryUpdated
         },
@@ -90,6 +91,17 @@ export default class ModList extends Component {
     handleEnterSearch = (e) => {
         if (e.key === 'Enter'){
             this.listSetter();
+        }
+    }
+
+    handleStyleButtonClick = (currentClass) => {
+        if(currentClass[0] === 'active') {
+            currentClass.replace('active','disable');
+            return
+        }
+        if(currentClass[0] === 'disable') {
+            currentClass.replace('disable','active');
+            return
         }
     }
 
@@ -219,9 +231,9 @@ export default class ModList extends Component {
                     />
                     <button type="submit" onClick={this.handleClickSearch}>Search</button>
                 </div>
-                <div>
-                    <button value='scenario' onClick={this.handleCategoryFilter}>Scenario</button>
-                    <button value='livery' onClick={this.handleCategoryFilter}>Livery</button>
+                <div className="functionBar">
+                    <button value='scenario' className="disable" onClick={this.handleCategoryFilter.bind(this)}>Scenario</button>
+                    <button value='livery' className="disable" onClick={this.handleCategoryFilter.bind(this)}>Livery</button>
                     {this.renderSelect(global.orderList, this.handleChangeOrder)}
                     {this.renderSelect(global.sortList, this.handleChangeSort)}
                     {this.renderSelect(global.pageSizeList, this.handleChangePageSize)}

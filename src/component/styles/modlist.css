@@ -1,6 +1,24 @@
-.modList{
+.modList {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+}
+
+.functionBar {
+    display: inline-flex
+}
+
+button {
+    border-radius: 5px;
+    padding: 3px;
+    width: auto;
+}
+
+.active {
+    background-color: yellow;
+}
+
+.disable {
+    background-color: white;
 }
