@@ -20,9 +20,7 @@ class ModPage extends Component {
             .then(data => {
                 this.setState({
                     data: data.data,
-                    style: {
-                        backgroundImage: 'url(' + data.data.screenshots[0].url + ')'
-                    }
+                    mainImage: data.data.screenshots[0].url,
                 })
             }
             )
@@ -35,11 +33,24 @@ class ModPage extends Component {
 
     render() {
         return (
-            <div className="modPage" style={this.state.style}>
-                <Link to="/">Home</Link>
-                <div>
-                    {this.state.data ? this.state.data.title : null}
-                </div>
+            <div className="modPage">
+                {this.state.data && (
+                    <><div className="navigationBar">
+                        <div>
+                            <Link className="button" to="/">Home</Link>
+                        </div>
+                        <div>
+                            {/* {this.state.data ? this.state.data.title : null} */}
+                        </div>
+                    </div>
+                    <div className="content">
+                        <img src={this.state.mainImage} width="auto" height="auto" className="contentImage" alt="missing" />
+                        <div className="contentData">
+                            <div>Title: {this.state.data.title}</div>
+                            <div>Description: {this.state.data.longDescription}</div>
+                        </div>
+                    </div></>
+                )}
             </div>
         )
     }
