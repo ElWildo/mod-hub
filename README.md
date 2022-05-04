@@ -27,6 +27,6 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 
-# Working project
+## Working project
 
 An example of the working project can be found [here](https://elwildo.github.io/mod-hub/)
